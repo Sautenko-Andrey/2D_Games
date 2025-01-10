@@ -1,0 +1,50 @@
+# Ignore build directories
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore compiled object files and binary files
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.lib
+*.a
+*.so
+*.dll
+
+# Ignore SFML library files
+SFML-*
+
+# Ignore temporary files and logs
+*.log
+*.tmp
+*.temp
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore generated files
+*.gch
+*.pch
+
+# Ignore debugging files
+*.dSYM/
+*.ipdb
+*.pdb
+
+# Ignore other editor or IDE settings
+.idea/
+*.iml
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+compile_commands.json
