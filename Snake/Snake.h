@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <vector>
 #include <deque>
 
 
@@ -14,7 +13,6 @@ struct SnakeSegment {
 
 
 // Alias for vector with snake's segments
-//using SnakeContainer = std::vector<SnakeSegment>;
 using SnakeContainer = std::deque<SnakeSegment>;
 
 // Snake's direction enumeration

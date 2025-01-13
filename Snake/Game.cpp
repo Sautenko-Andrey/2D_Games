@@ -7,20 +7,11 @@ Game::Game()
   m_window{"Snake", sf::Vector2u(800, 600)}
 {
     // Setting up class members
-    // m_mushroom_texture.loadFromFile("graphics/mushroom.png");
-    // m_mushroom.setTexture(m_mushroom_texture);
-    // m_increment = sf::Vector2i(400, 400);
-
-    srand(time(nullptr));
 
     m_textbox.setup(5, 14, 350, sf::Vector2f(225, 0));
-    m_textbox.add("Seeded random number generator with: " +
-                   std::to_string(time(NULL)));
+    m_textbox.add("Your results");
 }
 
-Game::~Game(){
-    // Empty destructor for now
-}
 
 void Game::handleInput(){
     
@@ -54,9 +45,6 @@ void Game::update(){
     */
 
     m_window.update();  // Update window events
-
-    // moveMushroom();
-
 
     // Snake speed in order to update the appropriate amount
     // of times per second
@@ -97,45 +85,13 @@ Window* Game::getWindow(){
 
 }
 
-// void Game::moveMushroom(){
-
-//     sf::Vector2u window_size = m_window.getWindowSize();
-
-//     sf::Vector2u texture_size = m_mushroom_texture.getSize();
-
-//     // Getting an elapsed time
-//     float elapsed_time = m_elapsed_time.asSeconds();
-
-//     if((m_mushroom.getPosition().x > window_size.x - texture_size.x &&
-//         m_increment.x > 0) || (m_mushroom.getPosition().x < 0 &&
-//         m_increment.x < 0)){
-        
-//         m_increment.x = -m_increment.x;
-//     }
-
-//     if((m_mushroom.getPosition().y > window_size.y - texture_size.y &&
-//         m_increment.y > 0) || (m_mushroom.getPosition().y < 0 &&
-//         m_increment.y < 0)){
-        
-//         m_increment.y = -m_increment.y;
-//     }
-
-//     m_mushroom.setPosition(
-//         m_mushroom.getPosition().x + m_increment.x * elapsed_time,
-//         m_mushroom.getPosition().y + m_increment.y * elapsed_time
-//     );
-
-// }
 
 sf::Time Game::getElapsedTime(){
     return m_elapsed_time;
 }
 
 
-
 void Game::restartClock(){
-
-    //m_elapsed_time = m_clock.restart();
 
     // Fixed time step
     m_elapsed_time += m_clock.restart();    

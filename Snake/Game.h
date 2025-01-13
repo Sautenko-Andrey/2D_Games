@@ -11,7 +11,6 @@ class Game {
 public:
 
     Game();
-    ~Game();
 
     void handleInput();
 
@@ -26,8 +25,6 @@ public:
     void restartClock();
 
 private:
-
-    //void moveMushroom();
 
     World m_world;
 
