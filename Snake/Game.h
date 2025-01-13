@@ -2,6 +2,7 @@
 #include "Window.h"
 #include "World.h"
 #include "Snake.h"
+#include "Textbox.h"
 
 
 
@@ -33,6 +34,8 @@ private:
     Snake m_snake;
 
     Window m_window;
+
+    Textbox m_textbox;
 
     sf::Texture m_mushroom_texture;
 

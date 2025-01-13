@@ -2,7 +2,7 @@
 
 
 Game::Game()
-: m_world{sf::Vector2u(800, 600)},
+: m_world{sf::Vector2u(800, 600), &m_textbox},
   m_snake{m_world.getBlockSize()},
   m_window{"Snake", sf::Vector2u(800, 600)}
 {
@@ -10,6 +10,12 @@ Game::Game()
     // m_mushroom_texture.loadFromFile("graphics/mushroom.png");
     // m_mushroom.setTexture(m_mushroom_texture);
     // m_increment = sf::Vector2i(400, 400);
+
+    srand(time(nullptr));
+
+    m_textbox.setup(5, 14, 350, sf::Vector2f(225, 0));
+    m_textbox.add("Seeded random number generator with: " +
+                   std::to_string(time(NULL)));
 }
 
 Game::~Game(){
@@ -64,6 +70,8 @@ void Game::update(){
 
         // If user lost
         if(m_snake.hasLost()){
+            m_textbox.add("Game over! Score: " +
+                           std::to_string(m_snake.getScore()));
             m_snake.reset();
         }
     }
@@ -77,6 +85,7 @@ void Game::render(){
     // Render here
     m_world.render(*m_window.getRenderWindow());
     m_snake.render(*m_window.getRenderWindow());
+    m_textbox.render(*m_window.getRenderWindow());
 
     m_window.endDraw();
 

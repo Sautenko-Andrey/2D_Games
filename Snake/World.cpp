@@ -1,11 +1,13 @@
 #include"World.h"
 
 
-World::World(sf::Vector2u window_size)
+World::World(sf::Vector2u window_size, Textbox *textbox)
 {
     m_block_size = 16;
 
     m_window_size = window_size;
+
+    m_ptr_textbox = textbox;
 
     respawnApple();
 
@@ -54,6 +56,8 @@ void World::update(Snake &player){
         // snake eats an apple
         player.extend();
         player.increaseScore();
+        m_ptr_textbox->add("You ate an apple. Score: " +
+                           std::to_string(player.getScore()));
         respawnApple();
     }
 

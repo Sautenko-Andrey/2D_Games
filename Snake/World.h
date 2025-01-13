@@ -1,12 +1,13 @@
 #pragma once
 #include<SFML/Graphics.hpp>
 #include"Snake.h"
+#include "Textbox.h"
 
 class World {
 
 public:
 
-    explicit World(sf::Vector2u window_size);
+    World(sf::Vector2u window_size, Textbox *textbox);
 
     int getBlockSize();
 
@@ -29,5 +30,7 @@ private:
     inline static constexpr int m_bounds_num{4};
 
     sf::RectangleShape m_bounds[m_bounds_num];
+
+    Textbox *m_ptr_textbox{nullptr};
 
 };
